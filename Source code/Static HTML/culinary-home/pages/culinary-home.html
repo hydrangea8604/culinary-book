@@ -23,9 +23,9 @@
 <body>
 <header class="header">
     <div class="header-limiter">
-        <h1><a href="#">Culinary <span>book</span></a></h1>
+        <h1><a href="culinary-home.html">Culinary <span>book</span></a></h1>
         <nav>
-            <a href="#">Trang chủ</a>
+            <a href="culinary-home.html">Trang chủ</a>
             <a href="#">Món ngon</a>
             <a href="#" class="selected">Bếp xinh</a>
             <a href="#">Đi chợ</a>
@@ -323,7 +323,7 @@
             }
         });
 
-        var userMenu = $('.header-user-dropdown .header-user-menu');
+        var userMenu = $('.header .header-user-menu');
 
         userMenu.on('touchend', function (e) {
             userMenu.addClass('show');
