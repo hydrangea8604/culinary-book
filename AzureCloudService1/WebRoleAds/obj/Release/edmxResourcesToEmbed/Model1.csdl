@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="contosoadsg4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TbPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TbUser" Relationship="contosoadsg4Model.FK_TbPost_ToUser" FromRole="TbPost" ToRole="TbUser" />
+    <NavigationProperty Name="TbRatings" Relationship="contosoadsg4Model.FK_TbRating_ToTbPost" FromRole="TbPost" ToRole="TbRating" />
+    <NavigationProperty Name="TbSubcribePosts" Relationship="contosoadsg4Model.FK_TbSubcribePost_ToTbPost" FromRole="TbPost" ToRole="TbSubcribePost" />
+  </EntityType>
+  <EntityContainer Name="contosoadsg4Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TbPosts" EntityType="Self.TbPost" />
+    <EntitySet Name="Images" EntityType="contosoadsg4Model.Image" />
+    <EntitySet Name="TbComments" EntityType="contosoadsg4Model.TbComment" />
+    <EntitySet Name="TbRatings" EntityType="contosoadsg4Model.TbRating" />
+    <EntitySet Name="TbSubcribePosts" EntityType="contosoadsg4Model.TbSubcribePost" />
+    <EntitySet Name="TbSubcribeUsers" EntityType="contosoadsg4Model.TbSubcribeUser" />
+    <EntitySet Name="TbUsers" EntityType="contosoadsg4Model.TbUser" />
+    <AssociationSet Name="FK_Image_ToTbUser" Association="contosoadsg4Model.FK_Image_ToTbUser">
+      <End Role="TbUser" EntitySet="TbUsers" />
+      <End Role="Image" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbComment_ToComment" Association="contosoadsg4Model.FK_TbComment_ToComment">
+      <End Role="TbComment" EntitySet="TbComments" />
+      <End Role="TbComment1" EntitySet="TbComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbComment_ToTbUser" Association="contosoadsg4Model.FK_TbComment_ToTbUser">
+      <End Role="TbUser" EntitySet="TbUsers" />
+      <End Role="TbComment" EntitySet="TbComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbPost_ToUser" Association="contosoadsg4Model.FK_TbPost_ToUser">
+      <End Role="TbUser" EntitySet="TbUsers" />
+      <End Role="TbPost" EntitySet="TbPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbRating_ToTbPost" Association="contosoadsg4Model.FK_TbRating_ToTbPost">
+      <End Role="TbPost" EntitySet="TbPosts" />
+      <End Role="TbRating" EntitySet="TbRatings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbSubcribePost_ToTbPost" Association="contosoadsg4Model.FK_TbSubcribePost_ToTbPost">
+      <End Role="TbPost" EntitySet="TbPosts" />
+      <End Role="TbSubcribePost" EntitySet="TbSubcribePosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbRating_ToTbUser" Association="contosoadsg4Model.FK_TbRating_ToTbUser">
+      <End Role="TbUser" EntitySet="TbUsers" />
+      <End Role="TbRating" EntitySet="TbRatings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbSubcribePost_ToTbUser" Association="contosoadsg4Model.FK_TbSubcribePost_ToTbUser">
+      <End Role="TbUser" EntitySet="TbUsers" />
+      <End Role="TbSubcribePost" EntitySet="TbSubcribePosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbSubcribeUser_ToTbUser1" Association="contosoadsg4Model.FK_TbSubcribeUser_ToTbUser1">
+      <End Role="TbUser" EntitySet="TbUsers" />
+      <End Role="TbSubcribeUser" EntitySet="TbSubcribeUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbSubcribeUser_ToTbUser2" Association="contosoadsg4Model.FK_TbSubcribeUser_ToTbUser2">
+      <End Role="TbUser" EntitySet="TbUsers" />
+      <End Role="TbSubcribeUser" EntitySet="TbSubcribeUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Link" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Caption" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TbUser" Relationship="contosoadsg4Model.FK_Image_ToTbUser" FromRole="Image" ToRole="TbUser" />
+  </EntityType>
+  <EntityType Name="TbComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="TbComment1" Relationship="contosoadsg4Model.FK_TbComment_ToComment" FromRole="TbComment" ToRole="TbComment1" />
+    <NavigationProperty Name="TbComment2" Relationship="contosoadsg4Model.FK_TbComment_ToComment" FromRole="TbComment1" ToRole="TbComment" />
+    <NavigationProperty Name="TbUser" Relationship="contosoadsg4Model.FK_TbComment_ToTbUser" FromRole="TbComment" ToRole="TbUser" />
+  </EntityType>
+  <EntityType Name="TbRating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="PostId" Type="Int32" Nullable="false" />
+    <Property Name="Point" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TbPost" Relationship="contosoadsg4Model.FK_TbRating_ToTbPost" FromRole="TbRating" ToRole="TbPost" />
+    <NavigationProperty Name="TbUser" Relationship="contosoadsg4Model.FK_TbRating_ToTbUser" FromRole="TbRating" ToRole="TbUser" />
+  </EntityType>
+  <EntityType Name="TbSubcribePost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="PostId" Type="Int32" Nullable="false" />
+    <Property Name="SubcribeDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="TbPost" Relationship="contosoadsg4Model.FK_TbSubcribePost_ToTbPost" FromRole="TbSubcribePost" ToRole="TbPost" />
+    <NavigationProperty Name="TbUser" Relationship="contosoadsg4Model.FK_TbSubcribePost_ToTbUser" FromRole="TbSubcribePost" ToRole="TbUser" />
+  </EntityType>
+  <EntityType Name="TbSubcribeUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="SubcribedUserId" Type="Int32" Nullable="false" />
+    <Property Name="SubcribeDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="TbUser" Relationship="contosoadsg4Model.FK_TbSubcribeUser_ToTbUser1" FromRole="TbSubcribeUser" ToRole="TbUser" />
+    <NavigationProperty Name="TbUser1" Relationship="contosoadsg4Model.FK_TbSubcribeUser_ToTbUser2" FromRole="TbSubcribeUser" ToRole="TbUser" />
+  </EntityType>
+  <EntityType Name="TbUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLogin" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Images" Relationship="contosoadsg4Model.FK_Image_ToTbUser" FromRole="TbUser" ToRole="Image" />
+    <NavigationProperty Name="TbComments" Relationship="contosoadsg4Model.FK_TbComment_ToTbUser" FromRole="TbUser" ToRole="TbComment" />
+    <NavigationProperty Name="TbPosts" Relationship="contosoadsg4Model.FK_TbPost_ToUser" FromRole="TbUser" ToRole="TbPost" />
+    <NavigationProperty Name="TbRatings" Relationship="contosoadsg4Model.FK_TbRating_ToTbUser" FromRole="TbUser" ToRole="TbRating" />
+    <NavigationProperty Name="TbSubcribePosts" Relationship="contosoadsg4Model.FK_TbSubcribePost_ToTbUser" FromRole="TbUser" ToRole="TbSubcribePost" />
+    <NavigationProperty Name="TbSubcribeUsers" Relationship="contosoadsg4Model.FK_TbSubcribeUser_ToTbUser1" FromRole="TbUser" ToRole="TbSubcribeUser" />
+    <NavigationProperty Name="TbSubcribeUsers1" Relationship="contosoadsg4Model.FK_TbSubcribeUser_ToTbUser2" FromRole="TbUser" ToRole="TbSubcribeUser" />
+  </EntityType>
+  <Association Name="FK_Image_ToTbUser">
+    <End Type="contosoadsg4Model.TbUser" Role="TbUser" Multiplicity="1" />
+    <End Type="contosoadsg4Model.Image" Role="Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbComment_ToComment">
+    <End Type="contosoadsg4Model.TbComment" Role="TbComment" Multiplicity="0..1" />
+    <End Type="contosoadsg4Model.TbComment" Role="TbComment1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbComment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbComment1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbComment_ToTbUser">
+    <End Type="contosoadsg4Model.TbUser" Role="TbUser" Multiplicity="1" />
+    <End Type="contosoadsg4Model.TbComment" Role="TbComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbComment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbPost_ToUser">
+    <End Type="contosoadsg4Model.TbUser" Role="TbUser" Multiplicity="1" />
+    <End Type="contosoadsg4Model.TbPost" Role="TbPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbPost">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbRating_ToTbPost">
+    <End Type="contosoadsg4Model.TbPost" Role="TbPost" Multiplicity="1" />
+    <End Type="contosoadsg4Model.TbRating" Role="TbRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbPost">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbRating">
+        <PropertyRef Name="PostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbSubcribePost_ToTbPost">
+    <End Type="contosoadsg4Model.TbPost" Role="TbPost" Multiplicity="1" />
+    <End Type="contosoadsg4Model.TbSubcribePost" Role="TbSubcribePost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbPost">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbSubcribePost">
+        <PropertyRef Name="PostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbRating_ToTbUser">
+    <End Type="contosoadsg4Model.TbUser" Role="TbUser" Multiplicity="1" />
+    <End Type="contosoadsg4Model.TbRating" Role="TbRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbRating">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbSubcribePost_ToTbUser">
+    <End Type="contosoadsg4Model.TbUser" Role="TbUser" Multiplicity="1" />
+    <End Type="contosoadsg4Model.TbSubcribePost" Role="TbSubcribePost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbSubcribePost">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbSubcribeUser_ToTbUser1">
+    <End Type="contosoadsg4Model.TbUser" Role="TbUser" Multiplicity="1" />
+    <End Type="contosoadsg4Model.TbSubcribeUser" Role="TbSubcribeUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbSubcribeUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbSubcribeUser_ToTbUser2">
+    <End Type="contosoadsg4Model.TbUser" Role="TbUser" Multiplicity="1" />
+    <End Type="contosoadsg4Model.TbSubcribeUser" Role="TbSubcribeUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbSubcribeUser">
+        <PropertyRef Name="SubcribedUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

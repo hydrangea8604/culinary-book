@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureCloudService1" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WebRoleAds">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=azuretableg4hoaptt;AccountKey=na9qXZ4ohZympOfI+A4JfAWy1Zn7nFX6g3u8SaB+R42QIme4GtqRP+bVLW4RNvLHHVOzdgDbOGM0cHC77pzskw==" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="WorkerRoleAds">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=azuretableg4hoaptt;AccountKey=na9qXZ4ohZympOfI+A4JfAWy1Zn7nFX6g3u8SaB+R42QIme4GtqRP+bVLW4RNvLHHVOzdgDbOGM0cHC77pzskw==" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

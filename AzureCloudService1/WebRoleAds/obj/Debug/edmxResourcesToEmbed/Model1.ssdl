@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="contosoadsg4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Link" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Caption" Type="nvarchar" MaxLength="255" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TbComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TbPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifyDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TbRating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="PostId" Type="int" Nullable="false" />
+    <Property Name="Point" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TbSubcribePost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="PostId" Type="int" Nullable="false" />
+    <Property Name="SubcribeDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TbSubcribeUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="SubcribedUserId" Type="int" Nullable="false" />
+    <Property Name="SubcribeDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TbUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLogin" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Image_ToTbUser">
+    <End Role="TbUser" Type="Self.TbUser" Multiplicity="1" />
+    <End Role="Image" Type="Self.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbComment_ToComment">
+    <End Role="TbComment" Type="Self.TbComment" Multiplicity="0..1" />
+    <End Role="TbComment1" Type="Self.TbComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbComment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbComment1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbComment_ToTbUser">
+    <End Role="TbUser" Type="Self.TbUser" Multiplicity="1" />
+    <End Role="TbComment" Type="Self.TbComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbComment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbPost_ToUser">
+    <End Role="TbUser" Type="Self.TbUser" Multiplicity="1" />
+    <End Role="TbPost" Type="Self.TbPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbPost">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbRating_ToTbPost">
+    <End Role="TbPost" Type="Self.TbPost" Multiplicity="1" />
+    <End Role="TbRating" Type="Self.TbRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbPost">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbRating">
+        <PropertyRef Name="PostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbRating_ToTbUser">
+    <End Role="TbUser" Type="Self.TbUser" Multiplicity="1" />
+    <End Role="TbRating" Type="Self.TbRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbRating">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbSubcribePost_ToTbPost">
+    <End Role="TbPost" Type="Self.TbPost" Multiplicity="1" />
+    <End Role="TbSubcribePost" Type="Self.TbSubcribePost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbPost">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbSubcribePost">
+        <PropertyRef Name="PostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbSubcribePost_ToTbUser">
+    <End Role="TbUser" Type="Self.TbUser" Multiplicity="1" />
+    <End Role="TbSubcribePost" Type="Self.TbSubcribePost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbSubcribePost">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbSubcribeUser_ToTbUser1">
+    <End Role="TbUser" Type="Self.TbUser" Multiplicity="1" />
+    <End Role="TbSubcribeUser" Type="Self.TbSubcribeUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbSubcribeUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TbSubcribeUser_ToTbUser2">
+    <End Role="TbUser" Type="Self.TbUser" Multiplicity="1" />
+    <End Role="TbSubcribeUser" Type="Self.TbSubcribeUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TbUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TbSubcribeUser">
+        <PropertyRef Name="SubcribedUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="contosoadsg4ModelStoreContainer">
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbComment" EntityType="Self.TbComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbPost" EntityType="Self.TbPost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbRating" EntityType="Self.TbRating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbSubcribePost" EntityType="Self.TbSubcribePost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbSubcribeUser" EntityType="Self.TbSubcribeUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbUser" EntityType="Self.TbUser" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Image_ToTbUser" Association="Self.FK_Image_ToTbUser">
+      <End Role="TbUser" EntitySet="TbUser" />
+      <End Role="Image" EntitySet="Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbComment_ToComment" Association="Self.FK_TbComment_ToComment">
+      <End Role="TbComment" EntitySet="TbComment" />
+      <End Role="TbComment1" EntitySet="TbComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbComment_ToTbUser" Association="Self.FK_TbComment_ToTbUser">
+      <End Role="TbUser" EntitySet="TbUser" />
+      <End Role="TbComment" EntitySet="TbComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbPost_ToUser" Association="Self.FK_TbPost_ToUser">
+      <End Role="TbUser" EntitySet="TbUser" />
+      <End Role="TbPost" EntitySet="TbPost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbRating_ToTbPost" Association="Self.FK_TbRating_ToTbPost">
+      <End Role="TbPost" EntitySet="TbPost" />
+      <End Role="TbRating" EntitySet="TbRating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbRating_ToTbUser" Association="Self.FK_TbRating_ToTbUser">
+      <End Role="TbUser" EntitySet="TbUser" />
+      <End Role="TbRating" EntitySet="TbRating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbSubcribePost_ToTbPost" Association="Self.FK_TbSubcribePost_ToTbPost">
+      <End Role="TbPost" EntitySet="TbPost" />
+      <End Role="TbSubcribePost" EntitySet="TbSubcribePost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbSubcribePost_ToTbUser" Association="Self.FK_TbSubcribePost_ToTbUser">
+      <End Role="TbUser" EntitySet="TbUser" />
+      <End Role="TbSubcribePost" EntitySet="TbSubcribePost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbSubcribeUser_ToTbUser1" Association="Self.FK_TbSubcribeUser_ToTbUser1">
+      <End Role="TbUser" EntitySet="TbUser" />
+      <End Role="TbSubcribeUser" EntitySet="TbSubcribeUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TbSubcribeUser_ToTbUser2" Association="Self.FK_TbSubcribeUser_ToTbUser2">
+      <End Role="TbUser" EntitySet="TbUser" />
+      <End Role="TbSubcribeUser" EntitySet="TbSubcribeUser" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

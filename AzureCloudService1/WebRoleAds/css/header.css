@@ -1,0 +1,234 @@
+.header {
+    background-color: #292c2f;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.15);
+    padding: 20px 40px;
+    height: 80px;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.header .header-limiter {
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Logo */
+
+.header .header-limiter h1 {
+    float: left;
+    font: normal 28px Cookie, Arial, Helvetica, sans-serif;
+    line-height: 40px;
+    margin: 0;
+}
+
+.header .header-limiter h1 span {
+    color: #bc40df;
+}
+
+/* The header links */
+
+.header .header-limiter a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header .header-limiter nav {
+    font: 16px Arial, Helvetica, sans-serif;
+    line-height: 40px;
+    float: left;
+    margin: 0 0 0 60px;
+    padding: 0;
+}
+
+.header .header-limiter nav a {
+    display: inline-block;
+    padding: 0 5px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+.header .header-limiter nav a:hover {
+    opacity: 1;
+}
+
+.header .header-limiter nav a.selected {
+    color: #608bd2;
+    pointer-events: none;
+    opacity: 1;
+}
+
+/* The search box */
+
+.header .header-limiter form {
+    float: right;
+    position: relative;
+    right: 230px;
+    margin-left: 40px;
+    border-radius: 3px;
+    background-color: #3a3c3e;
+    width: 44px;
+    height: 39px;
+    cursor: pointer;
+
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* CSS search icon */
+
+.header .header-limiter form:before {
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    border: 2px solid #fff;
+    width: 9px;
+    height: 9px;
+    top: 12px;
+    left: 14px;
+}
+
+.header .header-limiter form:after {
+    position: absolute;
+    content: '';
+    background-color: #fff;
+    width: 2px;
+    height: 8px;
+    top: 22px;
+    left: 26px;
+    -webkit-transform: rotate(-44deg);
+    -moz-transform: rotate(-44deg);
+    transform: rotate(-44deg);
+}
+
+/* The search box */
+
+.header .header-limiter form input {
+    display: none;
+    position: absolute;
+    right: 42px;
+    padding: 11px 12px 9px;
+    border: none;
+    width: 210px;
+    border-radius: 2px 0 0 2px;
+    height: 39px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* The "new" badge */
+
+.header .header-limiter nav a span {
+    position: absolute;
+    top: -12px;
+    border-radius: 2px;
+    background-color: #2A6A92;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    height: 13px;
+    font-size: 11px;
+    right: -15px;
+    padding: 1px 4px 0;
+}
+
+/* The user menu */
+
+.header .header-limiter .header-user-menu{
+    position: relative;
+    float:right;
+    background-color:#3a3c3e;
+    width:75px;
+    height:40px;
+    border-radius:2px;
+}
+
+.header .header-limiter .header-user-menu:before{
+    content:'';
+    width:0;
+    height:0;
+    top: 18px;
+    left: 15px;
+    position:absolute;
+    border:5px solid transparent;
+    border-top-color:#fff;
+}
+
+.header .header-limiter .header-user-menu ul{
+    display: none;
+    font:bold 13px Arial, Helvetica, sans-serif;
+    background-color: inherit;
+    list-style: none;
+    position: absolute;
+    text-align: center;
+    width: 125px;
+    top: 25px;
+    right: 0;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.header .header-user-menu:active ul,
+.header .header-user-menu:hover ul,
+.header .header-user-menu.show ul{
+    display:block;
+}
+
+.header .header-user-menu ul li{
+    padding:5px;
+}
+
+.header .header-user-menu ul li a:hover{
+    opacity:0.9;
+}
+
+.header .header-user-menu ul li a.highlight{
+    color:#e9ac09;
+}
+
+.header .header-user-menu img{
+    border-radius:100%;
+    position:absolute;
+    top:12px;
+    max-width: 30px;
+    right:5px;
+}
+
+/* Making the header responsive. */
+
+@media all and (max-width: 600px) {
+
+    .header {
+        padding: 15px;
+        position: relative;
+    }
+
+    .header .header-limiter h1 {
+        float: none;
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    .header .header-limiter nav {
+        text-align: center;
+        float: none;
+        margin: 0;
+    }
+
+    .header .header-limiter nav a {
+        font-size: 13px;
+    }
+
+    .header .header-limiter form {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+}

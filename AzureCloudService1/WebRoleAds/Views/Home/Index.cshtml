@@ -1,0 +1,394 @@
+﻿@*@{
+    ViewBag.Title = "Home Page";
+}*@
+@model WebRoleAds.TbPost
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bếp xinh</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/culinary-home.css" rel="stylesheet">
+    <link href="../css/header.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-limiter">
+            <h1><a href="#">Culinary <span>book</span></a></h1>
+            <nav>
+                <a href="#">Trang chủ</a>
+                <a href="#">Món ngon</a>
+                <a href="#" class="selected">Bếp xinh</a>
+                <a href="#">Đi chợ</a>
+            </nav>
+            <form method="get" action="#">
+                <input type="search" placeholder="Tìm kiếm..." name="txtSearch">
+            </form>
+            <div class="header-user-menu">
+                <img src="../wp-content/assets/1.jpg" alt="User Image" />
+
+                <ul>
+                    <li><a href="#">Thiết lập</a></li>
+                    <li><a href="#" class="highlight">Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Mẹo vặt nhà bếp
+
+                    <div class="pull-right">
+                        <button id="btnCreate" type="button" class="btn btn-success"
+                                data-toggle="modal" data-target="#create-post-modal">
+                            <i class="glyphicon glyphicon-edit"></i> Bài viết mới
+                        </button>
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Post -->
+        <div class="row">
+            <div class="col-md-3">
+                <a href="culinary-post.html">
+                    <img class="img-responsive" src="../wp-content/uploads/1377139093-1.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <h3><a href="culinary-post.html">Bí quyết "vàng" làm sạch đồ sứ như mới</a></h3>
+
+                <strong>
+                    Đồ gốm sứ để trưng hoặc sử dụng lâu ngày thường bám các vết bẩn nhìn không đẹp. Dưới đây là
+                    một cách dễ dàng làm sạch lại đồ gốm, sứ cũ.
+                </strong>
+
+                <p class="text-justify">
+                    Thông thường, các sản phẩm bằng gốm sứ sau thời gian dài sử dụng sẽ bị cáu bẩn, xuất
+                    hiện các mảng bị ố
+                    vàng trên bề mặt cũng như bên trong sản phẩm. Có nhiều người vẫn dùng nước ấm để xử lý sản phẩm khi xảy
+                    ra vấn đề này. Hiệu quả có cao hay không thì vẫn còn tùy nhận xét từng người.
+                    <a href="culinary-home.html">Bếp xinh</a> sẽ hướng dẫn các bạn thêm một vài cách khác để tẩy rửa sản
+                    phẩm gốm sứ khi gặp phải các vấn đề trên bằng một cách rất đơn giản và nhanh chóng.
+                </p>
+                <a class="btn btn-primary" href="culinary-post.html">
+                    Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Post -->
+        <div class="row">
+            <div class="col-md-3">
+                <a href="culinary-post.html">
+                    <img class="img-responsive" src="../wp-content/uploads/1375776085-8.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <h3><a href="culinary-post.html">Chỉ 20 phút tủ lạnh sạch hoàn hảo</a></h3>
+
+                <strong>Chiếc tủ lạnh bám đầy vết bẩn sẽ sạch hoàn hảo chỉ trong 20 phút, bạn có tin?</strong>
+
+                <p class="text-justify">
+                    Tủ lạnh là một đồ dùng nhà bếp vô cùng quan trọng và không thể thiếu của các gia
+                    đình. Nó hoạt động suốt
+                    ngày đêm, không bao giờ ngơi nghỉ để bảo vệ đồ ăn không bị hỏng và giữ thực phẩm tươi ngon. Vì thế,
+                    chúng ta cũng nên vệ sinh tủ lạnh thường xuyên để chúng luôn sạch sẽ và trông như mới.
+                </p>
+                <a class="btn btn-primary" href="culinary-post.html">
+                    Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Post -->
+        <div class="row">
+            <div class="col-md-3">
+                <a href="culinary-post.html">
+                    <img class="img-responsive" src="../wp-content/uploads/1375399070-7.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <h3><a href="culinary-post.html">Sắp xếp đồ dùng nhà bếp gọn "miễn chê"</a></h3>
+
+                <strong>
+                    Một vài ý tưởng hay ho và hiệu quả giúp bạn tạm biệt những bực bội khi tìm kiếm đồ dùng
+                    trong căn bếp của mình.
+                </strong>
+
+                <p class="text-justify">
+                    Trong nhà bếp có rất nhiều đồ dùng cần thiết như đũa, thìa, dĩa, dụng cụ đánh trứng,
+                    làm bánh… Tất cả
+                    chúng đều có chung đặc điểm là cồng kềnh và khó sắp xếp mỗi khi để gần nhau. Đã bao giờ bạn gặp phải
+                    tình huống chỉ muốn “phát điên” lên khi tìm mãi mà không thấy cái xẻng nào trong khi món trứng chiên sắp
+                    cháy khét? Vâng, câu trả lời chắc chắn là có rồi, thậm chí, đối với một vài người những chuyện như vậy
+                    vẫn thướng xuyên xảy ra.
+                </p>
+
+                </p>Vấn đề nằm ở cách sắp xếp chúng mà thôi. Đối với những đồ dùng chỉ cần rời mắt là chúng có thể lẫn vào
+                đâu đó và tìm mãi không ra, bạn nên bố trí lại không gian dành cho chúng thật thông minh. Những ý tưởng
+                hay ho dưới đây sẽ giúp bạn làm điều đó dễ dàng và hiệu quả.</p>
+                <a class="btn btn-primary" href="culinary-post.html">
+                    Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Post -->
+        <div class="row">
+            <div class="col-md-3">
+                <a href="culinary-post.html">
+                    <img class="img-responsive" src="../wp-content/uploads/1375153859-5.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <h3><a href="culinary-post.html">Mẹo làm sạch tủ bếp trong "nháy mắt"</a></h3>
+
+                <strong>
+                    Không tốn quá nhiều thời gian, công sức mà bạn vẫn có thể làm sạch tủ bếp nhanh chóng chỉ
+                    bằng vài mẹo
+                    hữu ích sau đây.
+                </strong>
+
+                <p class="text-justify">
+                    Hàng ngày, chúng ta động đến tủ bếp rất nhiều lần. Các cánh cửa và ngăn kéo của tủ
+                    bếp bị mở ra đóng vào
+                    không đếm xuể. Thêm vào đó, chúng ta thường chạm bàn tay bẩn khi đang nấu nướng hoặc dọn dẹp lên chúng.
+                    Do đó, tủ bếp nhanh chóng bị bẩn, dính đầy dấu tay và dầu mỡ trông thật kinh khủng.
+
+                    Lâu ngày, mặt ngoài của tủ bếp trở nên bẩn thỉu và xấu xí và bạn chỉ muốn thay ngay một chiếc tủ bếp mới
+                    “cứng”. Thay vì chọn lựa cách làm tốn kém và phức tạp như vậy, <a href="culinary-home.html">Bếp xinh</a>
+                    xin mách các chị em một số mẹp làm sạch tủ bếp thông minh, đơn giản và vô cùng nhanh chóng.
+                </p>
+                <a class="btn btn-primary" href="culinary-post.html">
+                    Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Post -->
+        <div class="row">
+            <div class="col-md-3">
+                <a href="culinary-post.html">
+                    <img class="img-responsive" src="../wp-content/uploads/1376456178-3.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <h3><a href="culinary-post.html">4 bí quyết lau chùi đồ inox hiệu quả</a></h3>
+
+                <strong>
+                    Để giữ đồ dùng inox luôn sạch và sáng bóng không hề khó nhưng không phải bà nội trợ nào cũng
+                    làm đúng cách.
+                </strong>
+
+                <p class="text-justify">
+                    Thép không gỉ hay inox được biết đến là một kim loại không bị ăn mòn và gỉ sét, luôn
+                    giữ được vẻ sáng bóng. Chính vì ưu điểm tuyệt vời này nên inox là chất liệu phổ biến được lựa chọn cho
+                    phòng bếp và phòng tắm.
+
+                    Thế nhưng, đừng vì thế mà không ngó ngàng gì đến chúng. Các vết bẩn tích tụ lâu ngày tạo thành những vết
+                    bám, làm mờ và xỉn bề mặt của inox. Lúc này, bạn sẽ cần tới một vài bí quyết nho nhỏ, hữu ích để có thể
+                    làm sạch đồ dùng tốt hơn.
+                </p>
+                <a class="btn btn-primary" href="culinary-post.html">
+                    Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; G4 Culinary Book 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- model for add new payment -->
+    <div class="modal fade" id="create-post-modal">
+        <div class="modal-dialog">
+
+            <form action="Create" method="post" class="form-horizontal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">Gởi bài viết mới</h4>
+                    </div>
+                    <div class="modal-body">
+                        <br />
+                        <fieldset>
+                            <!-- Title -->
+                            @*<div class="form-group">
+                                <label class="col-sm-3 control-label" for="postTitle">Tiêu đề *</label>
+
+                                <div class="col-sm-8">
+                                    <input id="postTitle" name="postTitle" class="form-control input-md"
+                                           type="text" required placeholder="Vui lòng nhập tiêu đề bài viết">
+                                </div>
+                            </div>*@
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            @*<div class="form-group">
+                                <label class="col-sm-3 control-label" for="postContent">Nội dung *</label>
+
+                                <div class="col-sm-8">
+                                    <textarea id="postContent" name="postContent" class="form-control input-md"
+                                              required rows="8" placeholder="Vui lòng nhập nội dung bài viết"></textarea>
+                                </div>
+                            </div>*@
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "col-sm-3 control-label" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <!-- Upload image -->
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="uploadImages">Tải ảnh lên *</label>
+
+                                <div class="col-sm-8">
+                                    <input id="uploadImages" name="uploadImages" class="form-control input-md"
+                                           type="file" required>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="action" value="createPost" />
+                        <button type="submit" class="btn btn-success">
+                            <i class="glyphicon glyphicon-circle-arrow-right"></i> Gởi bài viết mới
+                        </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </form>
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('.header form').on('click', function (e) {
+            // If the form (which is turned into the search button) was
+            // clicked directly, toggle the visibility of the search box.
+            if (e.target == this) {
+                $(this).find('input').toggle();
+            }
+        });
+
+        var userMenu = $('.header-user-dropdown .header-user-menu');
+
+        userMenu.on('touchend', function (e) {
+            userMenu.addClass('show');
+            e.preventDefault();
+            e.stopPropagation();
+
+        });
+
+        // This code makes the user dropdown work on mobile devices
+        $(document).on('touchend', function (e) {
+            // If the page is touched anywhere outside the user menu, close it
+            userMenu.removeClass('show');
+        });
+    });
+    </script>
+
+</body>
+
+</html>
