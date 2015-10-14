@@ -85,7 +85,7 @@
                         @Html.DisplayFor(modelItem => item.Content)
                     </p>
 
-                    <a class="btn btn-primary" href="@Url.Action("Detail", "Home")">
+                    <a class="btn btn-primary" href="@Url.Action("Details", "TbPosts", new { id = item.Id })">
                         Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
                 </div>
