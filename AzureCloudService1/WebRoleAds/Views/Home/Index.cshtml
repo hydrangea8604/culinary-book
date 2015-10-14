@@ -1,10 +1,5 @@
-﻿@*@{
-    ViewBag.Title = "Home Page";
-}*@
-@model WebRoleAds.TbPost
-
-@{
-    ViewBag.Title = "Create";
+﻿@{
+    ViewBag.Title = "Culinary Book";
 }
 
 <!DOCTYPE html>
@@ -32,9 +27,9 @@
 <body>
     <header class="header">
         <div class="header-limiter">
-            <h1><a href="#">Culinary <span>book</span></a></h1>
+            <h1><a href="@Html.ActionLink("Index", "Home")">Culinary <span>book</span></a></h1>
             <nav>
-                <a href="#">Trang chủ</a>
+                <a href="@Html.ActionLink("Index", "Home")">Trang chủ</a>
                 <a href="#">Món ngon</a>
                 <a href="#" class="selected">Bếp xinh</a>
                 <a href="#">Đi chợ</a>
@@ -63,10 +58,9 @@
                     Mẹo vặt nhà bếp
 
                     <div class="pull-right">
-                        <button id="btnCreate" type="button" class="btn btn-success"
-                                data-toggle="modal" data-target="#create-post-modal">
+                        <a id="btnCreate" type="button" class="btn btn-primary" href="@Url.Action("Create", "TbPosts")">
                             <i class="glyphicon glyphicon-edit"></i> Bài viết mới
-                        </button>
+                        </a>
                     </div>
                 </h1>
             </div>
@@ -95,13 +89,13 @@
                     <a href="culinary-home.html">Bếp xinh</a> sẽ hướng dẫn các bạn thêm một vài cách khác để tẩy rửa sản
                     phẩm gốm sứ khi gặp phải các vấn đề trên bằng một cách rất đơn giản và nhanh chóng.
                 </p>
-                
+
                 <a class="btn btn-primary" href="@Url.Action("Detail", "Home")">
                     Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
-</div>
+            </div>
         </div>
-       
+
         <!-- /.row -->
 
         <hr>
@@ -160,7 +154,7 @@
                 </p>Vấn đề nằm ở cách sắp xếp chúng mà thôi. Đối với những đồ dùng chỉ cần rời mắt là chúng có thể lẫn vào
                 đâu đó và tìm mãi không ra, bạn nên bố trí lại không gian dành cho chúng thật thông minh. Những ý tưởng
                 hay ho dưới đây sẽ giúp bạn làm điều đó dễ dàng và hiệu quả.</p>
-           
+
                 <a class="btn btn-primary" href="@Url.Action("Detail", "Home")">
                     Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
@@ -235,51 +229,6 @@
             </div>
         </div>
         <!-- /.row -->
-
-        <hr>
-
-        <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; G4 Culinary Book 2015</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
     </div>
     <!-- /.container -->
     <!-- jQuery -->
@@ -288,108 +237,31 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
 
-    <!-- model for add new payment -->
-    <div class="modal fade" id="create-post-modal">
-        <div class="modal-dialog">
-
-            <form action="Create" method="post" class="form-horizontal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title">Gởi bài viết mới</h4>
-                    </div>
-                    <div class="modal-body">
-                        <br />
-                        <fieldset>
-                            <!-- Title -->
-                            @*<div class="form-group">
-                                <label class="col-sm-3 control-label" for="postTitle">Tiêu đề *</label>
-
-                                <div class="col-sm-8">
-                                    <input id="postTitle" name="postTitle" class="form-control input-md"
-                                           type="text" required placeholder="Vui lòng nhập tiêu đề bài viết">
-                                </div>
-                            </div>*@
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "col-sm-3 control-label" })
-                                <div class="col-md-8">
-                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <!-- Content -->
-                            @*<div class="form-group">
-                                <label class="col-sm-3 control-label" for="postContent">Nội dung *</label>
-
-                                <div class="col-sm-8">
-                                    <textarea id="postContent" name="postContent" class="form-control input-md"
-                                              required rows="8" placeholder="Vui lòng nhập nội dung bài viết"></textarea>
-                                </div>
-                            </div>*@
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "col-sm-3 control-label" })
-                                <div class="col-md-8">
-                                    @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <!-- Upload image -->
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="uploadImages">Tải ảnh lên *</label>
-
-                                <div class="col-sm-8">
-                                    <input id="uploadImages" name="uploadImages" class="form-control input-md"
-                                           type="file" required>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="hidden" name="action" value="createPost" />
-                        <button type="submit" class="btn btn-success">
-                            <i class="glyphicon glyphicon-circle-arrow-right"></i> Gởi bài viết mới
-                        </button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </form>
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
-
     <script type="text/javascript">
-    $(document).ready(function () {
-        $('.header form').on('click', function (e) {
-            // If the form (which is turned into the search button) was
-            // clicked directly, toggle the visibility of the search box.
-            if (e.target == this) {
-                $(this).find('input').toggle();
-            }
+        $(document).ready(function () {
+            $('.header form').on('click', function (e) {
+                // If the form (which is turned into the search button) was
+                // clicked directly, toggle the visibility of the search box.
+                if (e.target == this) {
+                    $(this).find('input').toggle();
+                }
+            });
+
+            var userMenu = $('.header .header-user-menu');
+
+            userMenu.on('touchend', function (e) {
+                userMenu.addClass('show');
+                e.preventDefault();
+                e.stopPropagation();
+
+            });
+
+            // This code makes the user dropdown work on mobile devices
+            $(document).on('touchend', function (e) {
+                // If the page is touched anywhere outside the user menu, close it
+                userMenu.removeClass('show');
+            });
         });
-
-        var userMenu = $('.header-user-dropdown .header-user-menu');
-
-        userMenu.on('touchend', function (e) {
-            userMenu.addClass('show');
-            e.preventDefault();
-            e.stopPropagation();
-
-        });
-
-        // This code makes the user dropdown work on mobile devices
-        $(document).on('touchend', function (e) {
-            // If the page is touched anywhere outside the user menu, close it
-            userMenu.removeClass('show');
-        });
-    });
     </script>
 
 </body>

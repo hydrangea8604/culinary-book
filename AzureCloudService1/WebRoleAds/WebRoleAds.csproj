@@ -204,7 +204,6 @@
     <Content Include="css\culinary-home.css" />
     <Content Include="css\culinary-post.css" />
     <Content Include="css\header.css" />
-    <Content Include="css\thumbnail-gallery.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

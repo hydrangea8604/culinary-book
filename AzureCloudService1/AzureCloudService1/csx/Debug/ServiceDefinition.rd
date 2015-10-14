@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AzureCloudService1" generation="1" functional="0" release="0" Id="12681001-5593-4d41-87a8-125315bfe40a" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AzureCloudService1" generation="1" functional="0" release="0" Id="ba026a3c-3ced-44c0-a443-fbcd10ae74ec" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="AzureCloudService1Group" generation="1" functional="0" release="0">
       <componentports>
@@ -62,7 +62,7 @@
       </maps>
       <components>
         <groupHascomponents>
-          <role name="WebRoleAds" generation="1" functional="0" release="0" software="D:\Gits\AzureCloudService1\AzureCloudService1\csx\Debug\roles\WebRoleAds" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaIISHost.exe " memIndex="-1" hostingEnvironment="frontendadmin" hostingEnvironmentVersion="2">
+          <role name="WebRoleAds" generation="1" functional="0" release="0" software="D:\Study\CC\CC Project\culinary-book\AzureCloudService1\AzureCloudService1\csx\Debug\roles\WebRoleAds" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaIISHost.exe " memIndex="-1" hostingEnvironment="frontendadmin" hostingEnvironmentVersion="2">
             <componentports>
               <inPort name="Endpoint1" protocol="http" portRanges="80" />
             </componentports>
@@ -82,7 +82,7 @@
           </sCSPolicy>
         </groupHascomponents>
         <groupHascomponents>
-          <role name="WorkerRoleAds" generation="1" functional="0" release="0" software="D:\Gits\AzureCloudService1\AzureCloudService1\csx\Debug\roles\WorkerRoleAds" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaWorkerHost.exe " memIndex="-1" hostingEnvironment="consoleroleadmin" hostingEnvironmentVersion="2">
+          <role name="WorkerRoleAds" generation="1" functional="0" release="0" software="D:\Study\CC\CC Project\culinary-book\AzureCloudService1\AzureCloudService1\csx\Debug\roles\WorkerRoleAds" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaWorkerHost.exe " memIndex="-1" hostingEnvironment="consoleroleadmin" hostingEnvironmentVersion="2">
             <settings>
               <aCS name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" defaultValue="" />
               <aCS name="__ModelData" defaultValue="&lt;m role=&quot;WorkerRoleAds&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;WebRoleAds&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;WorkerRoleAds&quot; /&gt;&lt;/m&gt;" />
@@ -110,9 +110,9 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="77d38134-ae06-44ee-bf02-2e6d7d2f65dd" ref="Microsoft.RedDog.Contract\ServiceContract\AzureCloudService1Contract@ServiceDefinition">
+    <implementation Id="36cb27c1-db0a-474d-845d-917de4067220" ref="Microsoft.RedDog.Contract\ServiceContract\AzureCloudService1Contract@ServiceDefinition">
       <interfacereferences>
-        <interfaceReference Id="c2ffb53a-a3c4-4943-929d-92acc3eb4f6f" ref="Microsoft.RedDog.Contract\Interface\WebRoleAds:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="2b8c57ea-b067-4138-95aa-71b466f1f19a" ref="Microsoft.RedDog.Contract\Interface\WebRoleAds:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/AzureCloudService1/AzureCloudService1Group/WebRoleAds:Endpoint1" />
           </inPort>

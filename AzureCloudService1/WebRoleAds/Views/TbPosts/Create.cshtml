@@ -1,72 +1,150 @@
 ﻿@model WebRoleAds.TbPost
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Culinary Book";
 }
 
-<h2>Create</h2>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>TbPost</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bếp xinh</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/culinary-home.css" rel="stylesheet">
+    <link href="../css/header.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-limiter">
+            <h1><a href="@Html.ActionLink("Index", "Home")">Culinary <span>book</span></a></h1>
+            <nav>
+                <a href="@Html.ActionLink("Index", "Home")">Trang chủ</a>
+                <a href="#">Món ngon</a>
+                <a href="#" class="selected">Bếp xinh</a>
+                <a href="#">Đi chợ</a>
+            </nav>
+            <form method="get" action="#">
+                <input type="search" placeholder="Tìm kiếm..." name="txtSearch">
+            </form>
+            <div class="header-user-menu">
+                <img src="../wp-content/assets/1.jpg" alt="User Image" />
+
+                <ul>
+                    <li><a href="#">Thiết lập</a></li>
+                    <li><a href="#" class="highlight">Đăng xuất</a></li>
+                </ul>
             </div>
         </div>
+    </header>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Gởi bài viết mới</h1>
             </div>
         </div>
+        <!-- /.row -->
+        <!-- Post -->
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Title, "Tiêu đề", htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-7">
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Content, "Nội dung", htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-7">
+                            @Html.TextAreaFor(model => model.Content, htmlAttributes: new { @class = "form-control", @rows = "8" })
+                            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ModifyDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ModifyDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ModifyDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3" for="imageFiles">Tải ảnh lên</label>
+                        <div class="col-md-7">
+                            <input type="file" name="imageFiles" accept="image/*" class="form-control fileupload" multiple />
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+                    <div class="form-group">
+                        <div class="text-center">
+                            <button type="submit" name="CreatePost" class="btn btn-success">
+                                Tạo bài viết <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="@Url.Action("Index", "Home")" type="button" class="btn btn-default">
+                            <i class="glyphicon glyphicon-arrow-left"></i> Quay lại trang chủ
+                        </a>
+                    </div>
+                </div>
+            }
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
         </div>
+        <!-- /.row -->
     </div>
-}
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.header form').on('click', function (e) {
+                // If the form (which is turned into the search button) was
+                // clicked directly, toggle the visibility of the search box.
+                if (e.target == this) {
+                    $(this).find('input').toggle();
+                }
+            });
+
+            var userMenu = $('.header .header-user-menu');
+
+            userMenu.on('touchend', function (e) {
+                userMenu.addClass('show');
+                e.preventDefault();
+                e.stopPropagation();
+
+            });
+
+            // This code makes the user dropdown work on mobile devices
+            $(document).on('touchend', function (e) {
+                // If the page is touched anywhere outside the user menu, close it
+                userMenu.removeClass('show');
+            });
+        });
+    </script>
+</body>
+</html>
