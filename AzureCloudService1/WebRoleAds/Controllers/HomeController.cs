@@ -23,8 +23,14 @@ namespace WebRoleAds.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
+            
             return View();
         }
+        public ActionResult Detail()
+        {
+            ViewBag.Message = "Your details description page.";
+            return View();
+        }
+             
     }
 }

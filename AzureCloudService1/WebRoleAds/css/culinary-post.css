@@ -1,13 +1,13 @@
-/*!
- * Start Bootstrap - Blog Post HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
-body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+#authorImage {
+    height: 82px;
+    width: 82px;
+    position: relative;
 }
 
-footer {
-    margin: 50px 0;
+.commentImage {
+    height: 64px;
+    width: 64px;
+    position: relative;
 }
