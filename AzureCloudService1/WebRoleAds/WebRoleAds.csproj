@@ -208,12 +208,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="js\bootstrap-image-gallery.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="wp-content\assets\1.jpg" />
+    <Content Include="wp-content\assets\2.jpg" />
+    <Content Include="wp-content\assets\3.jpg" />
+    <Content Include="wp-content\assets\4.jpg" />
     <Content Include="wp-content\uploads\1375153859-1.jpg" />
     <Content Include="wp-content\uploads\1375153859-4.jpg" />
     <Content Include="wp-content\uploads\1375153859-5.jpg" />
