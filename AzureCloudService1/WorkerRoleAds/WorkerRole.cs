@@ -9,6 +9,7 @@ using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.WindowsAzure.Storage;
+using WorkerRoleAds.Core;
 
 namespace WorkerRoleAds
 {
@@ -17,55 +18,74 @@ namespace WorkerRoleAds
         private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
 
+        //public override void Run()
+        //{
+        //    Trace.TraceInformation("WorkerRoleAds is running");
+
+        //    try
+        //    {
+        //        this.RunAsync(this.cancellationTokenSource.Token).Wait();
+        //    }
+        //    finally
+        //    {
+        //        this.runCompleteEvent.Set();
+        //    }
+        //}
+
+        //public override bool OnStart()
+        //{
+        //    // Set the maximum number of concurrent connections
+        //    ServicePointManager.DefaultConnectionLimit = 12;
+
+        //    // For information on handling configuration changes
+        //    // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+
+        //    bool result = base.OnStart();
+
+        //    Trace.TraceInformation("WorkerRoleAds has been started");
+
+        //    return result;
+        //}
+
         public override void Run()
         {
-            Trace.TraceInformation("WorkerRoleAds is running");
+            while (true)
+            {
+                try
+                {
+                    Trace.WriteLine("Email Working", "Information");
+                    Thread.Sleep(ConfigSettings.EmailQueueInterval);
 
-            try
-            {
-                this.RunAsync(this.cancellationTokenSource.Token).Wait();
-            }
-            finally
-            {
-                this.runCompleteEvent.Set();
+                    EmailManager.SendQueuedEmail();
+                }
+                catch (Exception e)
+                {
+                    Trace.TraceError("Email Error: " + e.Message);
+                }
+                finally
+                {
+                    try
+                    {
+                        Thread.ResetAbort();
+                    }
+                    catch { }
+                }
             }
         }
 
         public override bool OnStart()
         {
-            // Set the maximum number of concurrent connections
+            // Set the maximum number of concurrent connections 
             ServicePointManager.DefaultConnectionLimit = 12;
 
             // For information on handling configuration changes
             // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
 
-            bool result = base.OnStart();
-
-            Trace.TraceInformation("WorkerRoleAds has been started");
-
-            return result;
+            return base.OnStart();
         }
+       
+       
 
-        public override void OnStop()
-        {
-            Trace.TraceInformation("WorkerRoleAds is stopping");
 
-            this.cancellationTokenSource.Cancel();
-            this.runCompleteEvent.WaitOne();
-
-            base.OnStop();
-
-            Trace.TraceInformation("WorkerRoleAds has stopped");
-        }
-
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                await Task.Delay(1000);
-            }
-        }
     }
 }
