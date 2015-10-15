@@ -277,7 +277,7 @@ namespace WorkerRoleAds.Core
         {
             try
             {
-                var from = new MailAddress(EmailAddress, EmailDisplayName);
+                var from = new MailAddress("hoaptt93@gmail.com", "MyWebsite");
                 var to = new MailAddress(emailTo, recipientDisplayName);
                 QueueEmailMessage(from, to, string.Empty, string.Empty, subject, text, DateTime.UtcNow, 0);
             }
