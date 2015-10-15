@@ -22,7 +22,7 @@
     <Property name="Configuration" value="Debug" />
     <Property name="Platform" value="AnyCPU" />
     <Property name="RoleTargetFramework" value="v4.5" />
-    <Property name="OutputDir" value="D:\Study\CC\CC Project\culinary-book\AzureCloudService1\AzureCloudService1\obj\Debug\WorkerRoleAds\" />
+    <Property name="OutputDir" value="D:\AzureProject\culinary-book\AzureCloudService1\AzureCloudService1\obj\Debug\WorkerRoleAds\" />
     <Property name="EntryPoint" value="WorkerRoleAds.dll" />
     <Property name="SourceDir" value="" />
     <Property name="SitePhysicalPath" value="" />

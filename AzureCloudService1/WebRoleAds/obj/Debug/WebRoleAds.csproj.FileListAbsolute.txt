@@ -242,6 +242,7 @@ D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\WebRoleAds.pdb
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\Antlr3.Runtime.dll
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\EntityFramework.dll
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\EntityFramework.SqlServer.dll
+D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\Magellanic.Interfaces.WebSecurity.dll
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\Microsoft.Azure.KeyVault.Core.dll
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\Microsoft.Data.Edm.dll
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\Microsoft.Data.OData.dll
@@ -259,7 +260,10 @@ D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\System.Web.WebPa
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\System.Web.WebPages.dll
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\System.Web.WebPages.Razor.dll
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\WebGrease.dll
+D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\WorkerRoleAds.dll
+D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\Microsoft.WindowsAzure.StorageClient.dll
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\MonAgentListener.dll
+D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\WorkerRoleAds.pdb
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\EntityFramework.xml
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\EntityFramework.SqlServer.xml
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\Microsoft.Azure.KeyVault.Core.xml
@@ -317,7 +321,3 @@ D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\zh-Hant\System.S
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\obj\Debug\WebRoleAds.csprojResolveAssemblyReference.cache
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\obj\Debug\WebRoleAds.dll
 D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\obj\Debug\WebRoleAds.pdb
-D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\Magellanic.Interfaces.WebSecurity.dll
-D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\WorkerRoleAds.dll
-D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\Microsoft.WindowsAzure.StorageClient.dll
-D:\AzureProject\culinary-book\AzureCloudService1\WebRoleAds\bin\WorkerRoleAds.pdb
