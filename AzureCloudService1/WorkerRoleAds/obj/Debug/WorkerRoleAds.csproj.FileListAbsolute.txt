@@ -249,3 +249,4 @@ D:\AzureProject\culinary-book\AzureCloudService1\WorkerRoleAds\bin\Debug\zh-Hans
 D:\AzureProject\culinary-book\AzureCloudService1\WorkerRoleAds\bin\Debug\zh-Hant\System.Spatial.resources.dll
 D:\AzureProject\culinary-book\AzureCloudService1\WorkerRoleAds\obj\Debug\WorkerRoleAds.dll
 D:\AzureProject\culinary-book\AzureCloudService1\WorkerRoleAds\obj\Debug\WorkerRoleAds.pdb
+D:\AzureProject\culinary-book\AzureCloudService1\WorkerRoleAds\obj\Debug\WorkerRoleAds.csprojResolveAssemblyReference.cache
