@@ -13,10 +13,10 @@ namespace WebRoleAds
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class contosoadsg4Entities : DbContext
+    public partial class contosoadsg4Entities1 : DbContext
     {
-        public contosoadsg4Entities()
-            : base("name=contosoadsg4Entities")
+        public contosoadsg4Entities1()
+            : base("name=contosoadsg4Entities1")
         {
         }
     
@@ -25,9 +25,9 @@ namespace WebRoleAds
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<TbPost> TbPosts { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<TbComment> TbComments { get; set; }
+        public virtual DbSet<TbPost> TbPosts { get; set; }
         public virtual DbSet<TbRating> TbRatings { get; set; }
         public virtual DbSet<TbSubcribePost> TbSubcribePosts { get; set; }
         public virtual DbSet<TbSubcribeUser> TbSubcribeUsers { get; set; }

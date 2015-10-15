@@ -27,6 +27,7 @@
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ImageURL" Type="nvarchar" MaxLength="255" />
     <Property Name="CreateDate" Type="datetime" Nullable="false" />
     <Property Name="ModifyDate" Type="datetime" />
   </EntityType>

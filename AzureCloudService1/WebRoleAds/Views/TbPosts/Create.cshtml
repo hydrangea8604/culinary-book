@@ -62,7 +62,7 @@
         <!-- /.row -->
         <!-- Post -->
         <div class="row">
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("Create", "TbPosts", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
 
@@ -85,9 +85,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-3" for="imageFiles">Tải ảnh lên</label>
+                        <label class="control-label col-md-3" for="imageFile">Tải ảnh lên</label>
                         <div class="col-md-7">
-                            <input type="file" name="imageFiles" accept="image/*" class="form-control fileupload" multiple />
+                            <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
                         </div>
                     </div>
 

@@ -11,7 +11,7 @@ namespace WebRoleAds
 {
     public class TbUsersController : Controller
     {
-        private contosoadsg4Entities db = new contosoadsg4Entities();
+        private contosoadsg4Entities1 db = new contosoadsg4Entities1();
 
         // GET: TbUsers
         public ActionResult Index()

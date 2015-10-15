@@ -4,12 +4,15 @@
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=azuretableg4hoaptt;AccountKey=na9qXZ4ohZympOfI+A4JfAWy1Zn7nFX6g3u8SaB+R42QIme4GtqRP+bVLW4RNvLHHVOzdgDbOGM0cHC77pzskw==" />
     </ConfigurationSettings>
   </Role>
   <Role name="WorkerRoleAds">
     <Instances count="1" />
     <ConfigurationSettings>
+      
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=azuretableg4hoaptt;AccountKey=na9qXZ4ohZympOfI+A4JfAWy1Zn7nFX6g3u8SaB+R42QIme4GtqRP+bVLW4RNvLHHVOzdgDbOGM0cHC77pzskw==" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

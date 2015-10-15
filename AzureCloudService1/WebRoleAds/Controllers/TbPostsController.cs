@@ -9,14 +9,47 @@ using System.Web.Mvc;
 using WebRoleAds;
 using System.Web.Security;
 using WorkerRoleAds.Core;
-
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.ServiceRuntime;
+using System.IO;
+using Microsoft.WindowsAzure.Storage.Queue;
+using Microsoft.WindowsAzure.Storage.RetryPolicies;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using Microsoft.WindowsAzure.Storage.Table.DataServices;
+using Microsoft.WindowsAzure.Storage;
 namespace WebRoleAds.Controllers
 {
     public class TbPostsController : Controller
     {
-        private contosoadsg4Entities db = new contosoadsg4Entities();
+        private contosoadsg4Entities1 db = new contosoadsg4Entities1();
+        private CloudQueue imagesQueue;
+        private static CloudBlobContainer imagesBlobContainer;
+        public TbPostsController()
+        {
+            InitializeStorage();
+        }
+        private void InitializeStorage()
+        {
+            // Open storage account using credentials from .cscfg file.
+            var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 
+            // Get context object for working with blobs, and 
+            // set a default retry policy appropriate for a web user interface.
+            var blobClient = storageAccount.CreateCloudBlobClient();
+            blobClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 
+            // Get a reference to the blob container.
+            imagesBlobContainer = blobClient.GetContainerReference("images");
+
+            // Get context object for working with queues, and 
+            // set a default retry policy appropriate for a web user interface.
+            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+            queueClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+
+            // Get a reference to the queue.
+            imagesQueue = queueClient.GetQueueReference("images");
+        }
 
         //
         // GET: /Account/Login
@@ -80,21 +113,54 @@ namespace WebRoleAds.Controllers
             
         }
 
+        private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
+        {
+            Trace.TraceInformation("Uploading image file {0}", imageFile.FileName);
+
+            string blobName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
+            // Retrieve reference to a blob. 
+            CloudBlockBlob imageBlob = imagesBlobContainer.GetBlockBlobReference(blobName);
+            // Create the blob by uploading a local file.
+            using (var fileStream = imageFile.InputStream)
+            {
+                 imageBlob.UploadFromStreamAsync(fileStream);
+            }
+
+            Trace.TraceInformation("Uploaded image file to {0}", imageBlob.Uri.ToString());
+
+            return imageBlob;
+        }
+
         // POST: TbPosts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserId,Title,Content,CreateDate,ModifyDate")] TbPost tbPost)
+        public async Task<ActionResult> Create([Bind(Include = "Id,UserId,Title,Content,CreateDate,ModifyDate")] TbPost tbPost,
+            HttpPostedFileBase imageFile)
         {
+            CloudBlockBlob imageBlob = null;
             
             if (ModelState.IsValid)
             {
                 tbPost.UserId = 1;
                 tbPost.CreateDate = DateTime.Now;
                 tbPost.ModifyDate = DateTime.Now;
+                if (imageFile != null && imageFile.ContentLength != 0)
+                {
+                    imageBlob = await UploadAndSaveBlobAsync(imageFile);
+                    tbPost.ImageURL = imageBlob.Uri.ToString();
+                    Trace.TraceInformation("Created AdId {0} in database", tbPost.Id);
+                }
+
                 db.TbPosts.Add(tbPost);
                 db.SaveChanges();
+                if (imageBlob != null)
+                {
+                    var queueMessage = new CloudQueueMessage(tbPost.Id.ToString());
+                    imagesQueue.AddMessageAsync(queueMessage);
+                    Trace.TraceInformation("Created queue message for AdId {0}", tbPost.Id);
+                }
                 return RedirectToAction("Index");
             }
 
@@ -150,7 +216,8 @@ namespace WebRoleAds.Controllers
         // GET: TbPosts/Subcribe/5
         public ActionResult Subcribe()
         {
-            EmailManager.SendSimpleMessage(Session["user"] as String, "Somebody", "Hello từ Bản tin mẹo vặt nhà bếp", "Cam.");
+            EmailManager.SendSimpleMessage(Session["user"] as String, "Somebody", "Hello từ Bản tin mẹo vặt nhà bếp", 
+                "Cảm ơn bạn đã đăng kí nhận bản tin của chúng tôi.");
             System.Diagnostics.Trace.WriteLine(Session["user"] as String);
             return RedirectToAction("Create");
            // return View(db.TbPosts.ToList());

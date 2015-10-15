@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AzureCloudService1" generation="1" functional="0" release="0" Id="670732a4-d99d-4713-adad-b1bd5959d1fd" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AzureCloudService1" generation="1" functional="0" release="0" Id="6df29014-1130-4cf1-b351-3f6859274e24" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="AzureCloudService1Group" generation="1" functional="0" release="0">
       <componentports>
@@ -15,6 +15,11 @@
             <mapMoniker name="/AzureCloudService1/AzureCloudService1Group/MapWebRoleAds:Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
           </maps>
         </aCS>
+        <aCS name="WebRoleAds:StorageConnectionString" defaultValue="">
+          <maps>
+            <mapMoniker name="/AzureCloudService1/AzureCloudService1Group/MapWebRoleAds:StorageConnectionString" />
+          </maps>
+        </aCS>
         <aCS name="WebRoleAdsInstances" defaultValue="[1,1,1]">
           <maps>
             <mapMoniker name="/AzureCloudService1/AzureCloudService1Group/MapWebRoleAdsInstances" />
@@ -23,6 +28,11 @@
         <aCS name="WorkerRoleAds:Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" defaultValue="">
           <maps>
             <mapMoniker name="/AzureCloudService1/AzureCloudService1Group/MapWorkerRoleAds:Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+          </maps>
+        </aCS>
+        <aCS name="WorkerRoleAds:StorageConnectionString" defaultValue="">
+          <maps>
+            <mapMoniker name="/AzureCloudService1/AzureCloudService1Group/MapWorkerRoleAds:StorageConnectionString" />
           </maps>
         </aCS>
         <aCS name="WorkerRoleAdsInstances" defaultValue="[1,1,1]">
@@ -44,6 +54,11 @@
             <aCSMoniker name="/AzureCloudService1/AzureCloudService1Group/WebRoleAds/Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
           </setting>
         </map>
+        <map name="MapWebRoleAds:StorageConnectionString" kind="Identity">
+          <setting>
+            <aCSMoniker name="/AzureCloudService1/AzureCloudService1Group/WebRoleAds/StorageConnectionString" />
+          </setting>
+        </map>
         <map name="MapWebRoleAdsInstances" kind="Identity">
           <setting>
             <sCSPolicyIDMoniker name="/AzureCloudService1/AzureCloudService1Group/WebRoleAdsInstances" />
@@ -52,6 +67,11 @@
         <map name="MapWorkerRoleAds:Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" kind="Identity">
           <setting>
             <aCSMoniker name="/AzureCloudService1/AzureCloudService1Group/WorkerRoleAds/Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+          </setting>
+        </map>
+        <map name="MapWorkerRoleAds:StorageConnectionString" kind="Identity">
+          <setting>
+            <aCSMoniker name="/AzureCloudService1/AzureCloudService1Group/WorkerRoleAds/StorageConnectionString" />
           </setting>
         </map>
         <map name="MapWorkerRoleAdsInstances" kind="Identity">
@@ -68,6 +88,7 @@
             </componentports>
             <settings>
               <aCS name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" defaultValue="" />
+              <aCS name="StorageConnectionString" defaultValue="" />
               <aCS name="__ModelData" defaultValue="&lt;m role=&quot;WebRoleAds&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;WebRoleAds&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;WorkerRoleAds&quot; /&gt;&lt;/m&gt;" />
             </settings>
             <resourcereferences>
@@ -85,6 +106,7 @@
           <role name="WorkerRoleAds" generation="1" functional="0" release="0" software="D:\AzureProject\culinary-book\AzureCloudService1\AzureCloudService1\csx\Debug\roles\WorkerRoleAds" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaWorkerHost.exe " memIndex="-1" hostingEnvironment="consoleroleadmin" hostingEnvironmentVersion="2">
             <settings>
               <aCS name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" defaultValue="" />
+              <aCS name="StorageConnectionString" defaultValue="" />
               <aCS name="__ModelData" defaultValue="&lt;m role=&quot;WorkerRoleAds&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;WebRoleAds&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;WorkerRoleAds&quot; /&gt;&lt;/m&gt;" />
             </settings>
             <resourcereferences>
@@ -110,9 +132,9 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="00fa2fe8-7f0f-44a7-9c0b-5a41038d3088" ref="Microsoft.RedDog.Contract\ServiceContract\AzureCloudService1Contract@ServiceDefinition">
+    <implementation Id="cbe37eb1-9939-49ed-9bbe-9cc175f4405d" ref="Microsoft.RedDog.Contract\ServiceContract\AzureCloudService1Contract@ServiceDefinition">
       <interfacereferences>
-        <interfaceReference Id="0f1b3db6-04b7-4076-84f6-3d7e05fdb0aa" ref="Microsoft.RedDog.Contract\Interface\WebRoleAds:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="50408c4d-2fe1-4b2e-b0e1-ba66d5740cbf" ref="Microsoft.RedDog.Contract\Interface\WebRoleAds:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/AzureCloudService1/AzureCloudService1Group/WebRoleAds:Endpoint1" />
           </inPort>

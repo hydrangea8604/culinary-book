@@ -4,24 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ca2c7b60c4174af18ae5a4a4ca3d2c4a" Name="Diagram1">
-        <EntityTypeShape EntityType="contosoadsg4Model.TbPost" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="contosoadsg4Model.Image" Width="1.5" PointX="3.75" PointY="12.875" />
-        <EntityTypeShape EntityType="contosoadsg4Model.TbComment" Width="1.5" PointX="3.75" PointY="15.625" />
-        <EntityTypeShape EntityType="contosoadsg4Model.TbRating" Width="1.5" PointX="6" PointY="2.375" />
-        <EntityTypeShape EntityType="contosoadsg4Model.TbSubcribePost" Width="1.5" PointX="6" PointY="5.375" />
-        <EntityTypeShape EntityType="contosoadsg4Model.TbSubcribeUser" Width="1.5" PointX="3.75" PointY="10" />
-        <EntityTypeShape EntityType="contosoadsg4Model.TbUser" Width="1.5" PointX="1.5" PointY="4.375" />
-        <AssociationConnector Association="contosoadsg4Model.FK_Image_ToTbUser" />
-        <AssociationConnector Association="contosoadsg4Model.FK_TbComment_ToComment" />
-        <AssociationConnector Association="contosoadsg4Model.FK_TbComment_ToTbUser" />
-        <AssociationConnector Association="contosoadsg4Model.FK_TbPost_ToUser" />
-        <AssociationConnector Association="contosoadsg4Model.FK_TbRating_ToTbPost" />
-        <AssociationConnector Association="contosoadsg4Model.FK_TbSubcribePost_ToTbPost" />
-        <AssociationConnector Association="contosoadsg4Model.FK_TbRating_ToTbUser" />
-        <AssociationConnector Association="contosoadsg4Model.FK_TbSubcribePost_ToTbUser" />
-        <AssociationConnector Association="contosoadsg4Model.FK_TbSubcribeUser_ToTbUser1" />
-        <AssociationConnector Association="contosoadsg4Model.FK_TbSubcribeUser_ToTbUser2" />
+      <Diagram DiagramId="15f1186f53494806bb505ada265d7284" Name="Diagram1">
+        <EntityTypeShape EntityType="contosoadsg4Model.Image" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="contosoadsg4Model.TbComment" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="contosoadsg4Model.TbPost" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="contosoadsg4Model.TbRating" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="contosoadsg4Model.TbSubcribePost" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="contosoadsg4Model.TbSubcribeUser" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="contosoadsg4Model.TbUser" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="contosoadsg4Model.FK_Image_ToTbUser" ManuallyRouted="false" />
+        <AssociationConnector Association="contosoadsg4Model.FK_TbComment_ToComment" ManuallyRouted="false" />
+        <AssociationConnector Association="contosoadsg4Model.FK_TbComment_ToTbUser" ManuallyRouted="false" />
+        <AssociationConnector Association="contosoadsg4Model.FK_TbPost_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="contosoadsg4Model.FK_TbRating_ToTbPost" ManuallyRouted="false" />
+        <AssociationConnector Association="contosoadsg4Model.FK_TbSubcribePost_ToTbPost" ManuallyRouted="false" />
+        <AssociationConnector Association="contosoadsg4Model.FK_TbRating_ToTbUser" ManuallyRouted="false" />
+        <AssociationConnector Association="contosoadsg4Model.FK_TbSubcribePost_ToTbUser" ManuallyRouted="false" />
+        <AssociationConnector Association="contosoadsg4Model.FK_TbSubcribeUser_ToTbUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="contosoadsg4Model.FK_TbSubcribeUser_ToTbUser2" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

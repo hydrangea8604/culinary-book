@@ -250,6 +250,7 @@
     <Content Include="wp-content\uploads\1377130375-5.jpg" />
     <Content Include="wp-content\uploads\1377139093-1.jpg" />
     <Content Include="wp-content\uploads\1377139093-2.jpg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -267,7 +268,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

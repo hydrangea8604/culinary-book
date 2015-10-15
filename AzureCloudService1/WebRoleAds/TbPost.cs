@@ -25,6 +25,7 @@ namespace WebRoleAds
         public int UserId { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public string ImageURL { get; set; }
         public System.DateTime CreateDate { get; set; }
         public Nullable<System.DateTime> ModifyDate { get; set; }
     

@@ -1,6 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="contosoadsg4ModelStoreContainer" CdmEntityContainer="contosoadsg4Entities">
+  <EntityContainerMapping StorageEntityContainer="contosoadsg4ModelStoreContainer" CdmEntityContainer="contosoadsg4Entities1">
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="contosoadsg4Model.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Caption" ColumnName="Caption" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TbComments">
+      <EntityTypeMapping TypeName="contosoadsg4Model.TbComment">
+        <MappingFragment StoreEntitySet="TbComment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TbPosts">
       <EntityTypeMapping TypeName="contosoadsg4Model.TbPost">
         <MappingFragment StoreEntitySet="TbPost">
@@ -8,74 +29,54 @@
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
           <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Images">
-      <EntityTypeMapping TypeName="contosoadsg4Model.Image">
-        <MappingFragment StoreEntitySet="Image">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Caption" ColumnName="Caption" />
-          <ScalarProperty Name="Link" ColumnName="Link" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TbComments">
-      <EntityTypeMapping TypeName="contosoadsg4Model.TbComment">
-        <MappingFragment StoreEntitySet="TbComment">
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="Content" ColumnName="Content" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TbRatings">
       <EntityTypeMapping TypeName="contosoadsg4Model.TbRating">
         <MappingFragment StoreEntitySet="TbRating">
-          <ScalarProperty Name="Point" ColumnName="Point" />
-          <ScalarProperty Name="PostId" ColumnName="PostId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TbSubcribePosts">
       <EntityTypeMapping TypeName="contosoadsg4Model.TbSubcribePost">
         <MappingFragment StoreEntitySet="TbSubcribePost">
-          <ScalarProperty Name="SubcribeDate" ColumnName="SubcribeDate" />
-          <ScalarProperty Name="PostId" ColumnName="PostId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="SubcribeDate" ColumnName="SubcribeDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TbSubcribeUsers">
       <EntityTypeMapping TypeName="contosoadsg4Model.TbSubcribeUser">
         <MappingFragment StoreEntitySet="TbSubcribeUser">
-          <ScalarProperty Name="SubcribeDate" ColumnName="SubcribeDate" />
-          <ScalarProperty Name="SubcribedUserId" ColumnName="SubcribedUserId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SubcribedUserId" ColumnName="SubcribedUserId" />
+          <ScalarProperty Name="SubcribeDate" ColumnName="SubcribeDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TbUsers">
       <EntityTypeMapping TypeName="contosoadsg4Model.TbUser">
         <MappingFragment StoreEntitySet="TbUser">
-          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
